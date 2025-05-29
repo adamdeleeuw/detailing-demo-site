@@ -1,0 +1,987 @@
+/* =====================
+   GLOBAL & UTILITY STYLES
+   ===================== */
+
+:root {
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+body,
+p,
+input,
+label {
+    font-family: var(--font-body);
+    font-weight: 300;
+}
+
+body {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+.btn {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    /* Initial state: Gradient from solid black at top to transparent at bottom */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: none;
+    box-sizing: border-box;
+    /* No shadow initially */
+    /* Transition the background property as a whole, and box-shadow */
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navbar.navbar-scrolled {
+    /* Scrolled state: Solid black background */
+    background: rgba(0, 0, 0, 1);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    /* Shadow appears on scroll */
+}
+
+.navbar-logo img {
+    height: 48px;
+    width: auto;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#logo {
+    border-radius: 50%;
+}
+
+.navbar-links li {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.15rem;
+    transition: color 0.2s;
+}
+
+.navbar-links a:hover,
+.navbar-links a:focus {
+    color: #007BFF;
+    /* Electric Blue on hover */
+}
+
+.navbar button {
+    margin-left: 2rem;
+    margin-right: 4rem;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background: #007BFF;
+    /* Electric Blue */
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.navbar button:hover,
+.navbar button:focus {
+    background: #0056b3;
+    transform: translateY(-2px) scale(1.03);
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    /* Hidden by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    /* Ensure it's above other navbar content if overlapping */
+}
+
+.hamburger-bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #fff;
+    /* White bars for black background */
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-menu.is-active .hamburger-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.is-active .hamburger-bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.is-active .hamburger-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navbar Menu Content Wrapper for Desktop */
+.navbar-menu-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    /* Adjust as needed for spacing between links and button */
+}
+
+
+/* NAVBAR STYLES (adjustments for hamburger) */
+.navbar {
+    position: relative;
+    /* Needed for absolute positioning of navbar-collapse */
+}
+
+.navbar-book-btn {
+    /* Styles for the main book button, can inherit from .navbar button */
+    margin-left: 2rem;
+    margin-right: 4rem;
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    background: #007BFF;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.navbar-book-btn:hover,
+.navbar-book-btn:focus {
+    background: #0056b3;
+}
+
+
+.hamburger-menu {
+    display: none;
+    /* Hidden by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-left: auto;
+    margin-right: 1rem;
+    /* Pushes it to the right if links are hidden */
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-collapse {
+    display: flex;
+    /* On desktop, links and button are inline */
+    align-items: center;
+}
+
+/* Active state for hamburger icon (optional: transform to an 'X') */
+.hamburger-menu.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* =====================
+   HOME/HERO SECTION
+   ===================== */
+#home {
+    display: flex;
+    width: 100%;
+}
+
+.home {
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+
+.home .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+    /* Needed for absolute positioning of .logo-bg */
+    overflow: hidden;
+}
+
+.column img {
+    width: 100%;
+    height: 85vh;
+    object-fit: cover;
+}
+
+.home button {
+    background: #007BFF;
+    /* Electric Blue */
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 8px;
+    margin-top: 2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s, transform 0.2s;
+    align-self: center;
+    letter-spacing: 0.5px;
+}
+
+.home button:hover,
+.home button:focus {
+    background: #0056b3;
+    /* Slightly darker blue on hover */
+}
+
+#home_head h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #2B2B2B;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1.5px;
+    line-height: 1.1;
+}
+
+#introText p {
+    font-size: 1.35rem;
+    color: #333;
+    margin-bottom: 2rem;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+.logo-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.logo-bg .logo {
+    position: absolute;
+    fill: #007BFF;
+    opacity: 0.12;
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.07));
+    width: 80px;
+    height: 80px;
+    transition: opacity 0.3s;
+}
+
+/* Randomized but balanced positions and opacities */
+.logo1 {
+    top: 10%;
+    left: 5%;
+    opacity: 0.15;
+}
+
+.logo2 {
+    top: 40%;
+    left: 20%;
+    opacity: 0.09;
+}
+
+.logo3 {
+    top: 70%;
+    left: 10%;
+    opacity: 0.13;
+}
+
+.logo4 {
+    top: 20%;
+    left: 60%;
+    opacity: 0.11;
+}
+
+.logo5 {
+    top: 60%;
+    left: 70%;
+    opacity: 0.18;
+}
+
+.logo6 {
+    top: 80%;
+    left: 40%;
+    opacity: 0.08;
+}
+
+/* Make sure main content is above the logos */
+#home_head,
+#introText,
+.home button {
+    position: relative;
+    z-index: 1;
+}
+
+/* =====================
+   WHAT WE DO SECTION
+   ===================== */
+#whatWeDo {
+    position: relative;
+    background: url('images/headlights.jpg') center center / cover no-repeat fixed;
+    /* The 'fixed' value creates the parallax window effect */
+    min-height: 600px;
+    z-index: 1;
+    padding: 4rem 0;
+    /* Optional: add an overlay for readability */
+}
+
+#whatWeDo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(43, 43, 43, 0.75);
+    /* dark overlay for contrast */
+    z-index: 0;
+}
+
+#whatWeDo .row,
+#whatWeDo .sectionHead,
+#whatWeDo .column {
+    position: relative;
+    z-index: 1;
+}
+
+#whatWeDo .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#whatWeDo .sectionHead {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#whatWeDo .sectionHead h2 {
+    text-align: center;
+    /* REMOVED: width: 100%; - display:inline-block and parent flex centering is sufficient */
+    /* SIMPLIFIED: margin: 0; was overridden by margin-bottom */
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1.5px;
+}
+
+#whatWeDo .sectionHead h2::after {
+    content: "";
+    display: block;
+    width: 25%;
+    min-width: 60px;
+    max-width: 120px;
+    height: 6px;
+    background: #007BFF;
+    /* Same bright red */
+    border-radius: 3px;
+    margin: 1rem auto 0 auto;
+}
+
+#whatWeDo .row+.row {
+    justify-content: space-evenly;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+#whatWeDo .column {
+    flex: 1;
+    max-width: 300px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: rgba(43, 43, 43, 0.85);
+    /* Gunmetal with opacity */
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    padding: 2rem 1rem;
+    margin: 0 1rem;
+    box-shadow: 0 4px 24px rgba(255, 255, 255, 0.12);
+    /* White shadow */
+
+    /* --- FIX: Add initial state for slide-in animation --- */
+    opacity: 0;
+    transform: translateX(-100px);
+    /* Initially off-screen to the left */
+
+    /* --- FIX: Update transition to include opacity and transform for slide-in --- */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+/* --- FIX: Add the .is-visible state for the slide-in animation --- */
+#whatWeDo .column.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+    /* Slide to final position */
+}
+
+#whatWeDo .column:hover {
+    /* Ensure hover transform works correctly on top of the .is-visible state */
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+    /* Enhances shadow on hover */
+}
+
+#whatWeDo .column h2,
+#whatWeDo .column p {
+    color: #fff;
+}
+
+#whatWeDo .column img,
+#whatWeDo .column svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    background: #007BFF;
+    /* Electric Blue accent */
+    border-radius: 50%;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================
+   WHY CHOOSE US SECTION
+   ===================== */
+#whyUs {
+    width: 100%;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #007BFF 0%, #fff 100%);
+}
+
+#whyUs .row {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin: 0;
+    padding: 0;
+}
+
+#whyUs .sectionHead {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#whyUs .sectionHead h2 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1.5px;
+}
+
+#whyUs .sectionHead h2::after {
+    content: "";
+    display: block;
+    width: 25%;
+    min-width: 60px;
+    max-width: 120px;
+    height: 6px;
+    background: #007BFF;
+    /* Electric Blue accent */
+    border-radius: 3px;
+    margin: 1rem auto 0 auto;
+}
+
+#whyUs .column {
+    flex: 1 1 250px;
+    max-width: 300px;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #232323;
+    border-radius: 8px;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    /* Initial state for slide-in: off-screen to the right and transparent */
+    opacity: 0;
+    transform: translateX(100px);
+    /* Base transition for all columns in this section */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, box-shadow 0.3s ease-in-out;
+}
+
+/* This class will be added by JavaScript when the section is visible */
+#whyUs .column.is-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#whyUs .column:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    /* Enhances shadow on hover */
+}
+
+#whyUs .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    width: 60px;
+    height: 60px;
+    background: #ff8800;
+    color: #fff;
+    border-radius: 50%;
+}
+
+#whyUs .bottom {
+    margin-top: 1.5rem;
+}
+
+#whyUs .column img,
+#whyUs .column svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    background: #007BFF;
+    border-radius: 50%;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+#whyUs .column h2,
+#whyUs .column p {
+    color: #fff;
+}
+
+/* =====================
+   CALL TO ACTION SECTION
+   ===================== */
+#call {
+    background: #232323;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0 4rem 0;
+    text-align: center;
+    border-radius: 12px;
+    margin: 3rem auto 3rem auto;
+    max-width: 600px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.10);
+}
+
+#call h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+#call #number h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    /* Color will be handled by the 'a' tag now */
+    margin: 0 0 1.5rem 0;
+    letter-spacing: 2px;
+}
+
+#call #number h3 a {
+    color: #007BFF;
+    /* Electric Blue for the link */
+    text-decoration: none;
+    /* Remove default underline */
+    transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+    /* Smooth transition for hover */
+}
+
+#call #number h3 a:hover,
+#call #number h3 a:focus {
+    color: #0056b3;
+    /* Darker blue on hover */
+    text-decoration: underline;
+    /* Add underline on hover for better affordance */
+}
+
+#call button {
+    background: #007BFF;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 0.75rem 2.5rem;
+    border: none;
+    border-radius: 8px;
+    margin-top: 1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s, transform 0.2s;
+    letter-spacing: 0.5px;
+}
+
+#call button:hover,
+#call button:focus {
+    background: #0056b3;
+    transform: translateY(-2px) scale(1.03);
+}
+
+#call h2,
+#call #number,
+#call button {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+footer {
+    display: flex;
+    width: 100%;
+    background: black;
+    color: #fff;
+    padding: 2rem 0;
+    box-sizing: border-box;
+}
+
+footer .column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 2rem;
+    min-width: 0;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0 0;
+    text-align: left;
+}
+
+.footer-list li {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    color: #C0C0C0;
+    /* Metallic Silver */
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-label {
+    font-weight: 600;
+    color: #fff;
+    margin-right: 0.5rem;
+}
+
+.footer-list a {
+    color: #007BFF;
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+}
+
+.footer-list a:hover,
+.footer-list a:focus {
+    color: #fff;
+    text-decoration: underline;
+}
+
+#callToAction {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2rem 0;
+    width: 100%;
+}
+
+@media(max-width: 1003px) {
+    #home .home .column:nth-child(2) {
+        /* Selects the second column in the .home container */
+        display: none;
+    }
+}
+
+@media(max-width: 898px) {
+    .navbar button {
+        padding: 0.5rem 1rem;
+        /* Reduced left/right padding to 1rem */
+    }
+
+    .navbar-links li:first-child {
+        margin-left: 1.5rem;
+        /* Increased left margin for the first navigation link */
+    }
+
+    /* The .navbar button rule here might need to target .navbar-book-btn specifically if padding is different */
+    .navbar .navbar-book-btn {
+        /* Adjusted selector for specificity */
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Responsive Styles for "What We Do" section (<= 860px) */
+@media (max-width: 860px) {
+    #whatWeDo .row+.row {
+        /* Targets the row containing the service columns */
+        flex-direction: column;
+        align-items: center;
+        /* Center columns when stacked */
+        gap: 1.5rem;
+        /* Adjust gap for vertical stacking */
+    }
+
+    #whatWeDo .column {
+        margin: 0 0 1.5rem 0;
+        /* Adjust margins for vertical layout, add bottom margin */
+        max-width: 75%;
+        /* Allow columns to take more width when stacked */
+        /* Ensure individual column animations still work if they were viewport-dependent */
+    }
+}
+
+/* Responsive Styles for Navbar (<= 780px) */
+@media (max-width: 780px) {
+    .navbar {
+        background-color: #000;
+        /* Solid black background */
+        justify-content: space-between;
+        /* Align logo and hamburger */
+        position: relative;
+        /* For absolute positioning of the mobile menu */
+        padding-left: 1rem;
+        /* Ensure some padding */
+        padding-right: 1rem;
+    }
+
+    .navbar.navbar-scrolled {
+        background-color: #000 !important;
+        /* Ensure black background even when scrolled */
+    }
+
+    .hamburger-menu {
+        display: block;
+        /* Show hamburger */
+        order: 2;
+        /* Ensure it's on the right if navbar becomes flex container */
+    }
+
+    .navbar-menu-content {
+        display: none;
+        /* Hidden by default */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        /* Position below the navbar */
+        left: 0;
+        width: 100%;
+        background-color: #000;
+        /* Black background for dropdown */
+        padding: 1rem 0;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease-out, opacity 0.3s ease-out;
+        z-index: 1000;
+        border-top: 1px solid #333;
+        /* Optional separator */
+    }
+
+    .navbar-menu-content.is-open {
+        display: flex;
+        max-height: 100vh;
+        /* Adjust as needed, enough to show all items */
+        opacity: 1;
+    }
+
+    .navbar-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin-bottom: 1rem;
+        /* Space before the button */
+    }
+
+    .navbar-links li {
+        margin: 0;
+        /* Reset desktop margins */
+        width: 100%;
+    }
+
+    .navbar-links li:first-child {
+        margin-left: 0;
+        /* Reset specific margin for mobile */
+    }
+
+    .navbar-links a {
+        display: block;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        width: 100%;
+        border-bottom: 1px solid #222;
+        /* Separator for links */
+    }
+
+    .navbar-links li:last-child a {
+        border-bottom: none;
+    }
+
+    .navbar .navbar-book-btn {
+        /* Style for the button within the mobile menu */
+        display: block;
+        width: calc(100% - 2rem);
+        /* Full width with some padding */
+        margin: 1rem auto;
+        /* Centered with margin */
+        padding: 0.75rem 1rem;
+        /* Consistent padding */
+        text-align: center;
+    }
+
+    /* Hide original button if it was outside and not moved - not needed if structure is as above */
+}
+
+/* Responsive Styles for "Why Us" section (<= 706px) */
+@media (max-width: 706px) {
+    #whyUs .row {
+        /* This targets all .row elements within #whyUs.
+           For rows containing .column elements, this will stack them vertically.
+           The existing 'gap' property will provide vertical spacing.
+           The existing 'align-items' property will center the columns horizontally. */
+        flex-direction: column;
+    }
+
+    #whyUs .column {
+        max-width: 75%;
+        /* Allow columns to take up more width when stacked */
+        flex-grow: 0;
+        /* Prevent columns from growing to fill extra vertical space */
+        flex-basis: auto;
+        /* Ensure height is determined by content */
+        /* The existing gap on the parent .row will handle spacing between stacked columns.
+           The existing align-items: center on the parent .row will center the columns. */
+    }
+}
+
+@media(max-width: 635px) {
+    #call {
+        width: 75%;
+        /* This rule is fine for the #call section itself */
+        padding-left: 1rem;
+        /* Example: Adjust overall section padding if needed */
+        padding-right: 1rem;
+        /* Example: Adjust overall section padding if needed */
+    }
+
+    #call button {
+        /* Target the button specifically */
+        padding: 0.5rem 1.5rem;
+        /* Reduced padding for the button */
+        font-size: 1rem;
+        /* Optionally adjust font size */
+        /* Add any other button-specific adjustments here */
+    }
+}
+
+@media(max-width: 564px) {
+    footer {
+        flex-direction: column;
+        /* Stack the columns vertically */
+        align-items: center;
+        /* Center the columns horizontally */
+        text-align: center;
+        /* Center the text within each column */
+    }
+
+    footer .column {
+        width: 90%;
+        /* Allow columns to take up more width */
+        max-width: 400px;
+        /* Optional: constrain max width for very narrow stacked columns */
+        padding: 1rem 0;
+        /* Adjust padding for vertical stacking */
+        text-align: center;
+        /* Ensure text inside columns is centered */
+    }
+
+    .footer-list {
+        text-align: center;
+        /* Center the list items if they were left-aligned */
+        margin-left: auto;
+        /* Helps in centering the ul if it has a fixed width or inline-block display */
+        margin-right: auto;
+    }
+
+    .footer-list li {
+        justify-content: center;
+        /* Center flex items (icon/label and text) within the li if they are flex containers */
+        text-align: left;
+        /* Keep the label and link text itself left-aligned relative to each other if desired */
+    }
+}
