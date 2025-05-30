@@ -155,13 +155,6 @@ h3,
     /* Adjust as needed for spacing between links and button */
 }
 
-
-/* NAVBAR STYLES (adjustments for hamburger) */
-.navbar {
-    position: relative;
-    /* Needed for absolute positioning of navbar-collapse */
-}
-
 .navbar-book-btn {
     /* Styles for the main book button, can inherit from .navbar button */
     margin-left: 2rem;
@@ -230,6 +223,7 @@ h3,
 #home {
     display: flex;
     width: 100%;
+    margin-top: 4.5rem;
 }
 
 .home {
