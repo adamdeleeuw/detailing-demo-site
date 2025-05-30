@@ -1,0 +1,279 @@
+/* pg_book/book.css */
+
+/* =====================
+   BOOKING PAGE STYLES
+   ===================== */
+
+body {
+    background-color: #f9f9f9;
+    /* Light background for the page content area */
+}
+
+.book-page-container {
+    max-width: 960px;
+    margin: 0 auto;
+    /* Center the content */
+    padding: 2rem;
+    padding-top: 100px;
+    /* Account for fixed navbar */
+}
+
+.book-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: #fff;
+    /* White cards for sections */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.book-section h1,
+.book-section h2 {
+    font-family: var(--font-heading);
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.book-section p {
+    font-family: var(--font-body);
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Call Us Now Button */
+.call-now-btn {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto;
+    padding: 0.75rem 2rem;
+    background-color: #007BFF;
+    /* Main theme blue */
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    border-radius: 6px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s ease-in-out;
+}
+
+.call-now-btn:hover,
+.call-now-btn:focus {
+    background-color: #0056b3;
+    /* Darker blue */
+    transform: scale(1.05);
+    /* Slight pulse effect */
+    animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+
+/* Booking Form Styling */
+#serviceBookingForm fieldset {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+#serviceBookingForm legend {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #333;
+    padding: 0 0.5rem;
+}
+
+#serviceBookingForm label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    color: #444;
+}
+
+#serviceBookingForm input[type="text"],
+#serviceBookingForm input[type="email"],
+#serviceBookingForm input[type="tel"],
+#serviceBookingForm input[type="number"],
+#serviceBookingForm select,
+#serviceBookingForm textarea {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#serviceBookingForm input:focus,
+#serviceBookingForm select:focus,
+#serviceBookingForm textarea:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* Invalid input shake */
+#serviceBookingForm input:invalid,
+#serviceBookingForm select:invalid,
+#serviceBookingForm textarea:invalid {
+    border-color: #dc3545;
+    /* Red for error */
+}
+
+#serviceBookingForm .shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+
+#serviceBookingForm .submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    background-color: #28a745;
+    /* Green for submit */
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.15rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    /* For spinner positioning */
+}
+
+#serviceBookingForm .submit-btn:hover,
+#serviceBookingForm .submit-btn:focus {
+    background-color: #218838;
+    /* Darker green */
+}
+
+/* Spinner for submit button */
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form submission message */
+#form-submission-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    font-family: var(--font-body);
+}
+
+#form-submission-message.success {
+    background-color: #d4edda;
+    /* Light green */
+    color: #155724;
+    /* Dark green */
+    border: 1px solid #c3e6cb;
+}
+
+#form-submission-message.error {
+    background-color: #f8d7da;
+    /* Light red */
+    color: #721c24;
+    /* Dark red */
+    border: 1px solid #f5c6cb;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .book-page-container {
+        padding: 1rem;
+        padding-top: 80px;
+        /* Adjust for potentially smaller navbar */
+    }
+
+    .book-section {
+        padding: 1.5rem;
+    }
+
+    #serviceBookingForm fieldset {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-section h1 {
+        font-size: 1.8rem;
+    }
+
+    .book-section h2 {
+        font-size: 1.5rem;
+    }
+
+    #serviceBookingForm input[type="text"],
+    #serviceBookingForm input[type="email"],
+    #serviceBookingForm input[type="tel"],
+    #serviceBookingForm input[type="number"],
+    #serviceBookingForm select,
+    #serviceBookingForm textarea {
+        font-size: 0.95rem;
+        padding: 0.65rem;
+    }
+
+    #serviceBookingForm .submit-btn {
+        font-size: 1.05rem;
+    }
+}

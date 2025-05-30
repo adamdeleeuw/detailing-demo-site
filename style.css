@@ -105,6 +105,8 @@ h3,
     font-size: 1.1rem;
     cursor: pointer;
     transition: background 0.2s;
+    text-align: none;
+    text-decoration: none;
 }
 
 .navbar button:hover,

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css"> <!-- Link to main stylesheet for theme -->
+    <link rel="stylesheet" href="book.css"> <!-- Link to book page specific stylesheet -->
+    <title>Book Your Appointment - CrystalClean Car Care</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="../index.html"><img src="../images/crystal_logo.png" alt="CrystalClean Car Care Logo"
+                        id="logo"></a>
+            </div>
+            <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="navbarMenuContent">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <div class="navbar-menu-content" id="navbarMenuContent">
+                <ul class="navbar-links">
+                    <li><a href="../index.html#homePg">Home</a></li>
+                    <li><a href="book.html">Book</a></li> <!-- Current page -->
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#prevWork">Our Work</a></li>
+                    <li><a href="../index.html#ourWork">Contact</a></li>
+                </ul>
+                <button href="book.html" class="navbar-book-btn">Book Appointment Now</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="book-page-container">
+        <section id="booking-intro" class="book-section">
+            <h1>Schedule Your Car Detailing</h1>
+            <p>Use the scheduler below to find a time that works for you, or fill out the form with your details and
+                we'll get back to you!</p>
+            <a href="tel:YOUR_PHONE_NUMBER" class="call-now-btn">Call Us Now: (XXX) XXX-XXXX</a>
+        </section>
+
+        <section id="booking-form-section" class="book-section">
+            <h2>Request a Booking</h2>
+            <form id="serviceBookingForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+                <fieldset>
+                    <legend>Service & Vehicle Information</legend>
+
+                    <label for="serviceType">Service Type*</label>
+                    <select id="serviceType" name="serviceType" required aria-required="true">
+                        <option value="">--Please choose a service--</option>
+                        <option value="exterior_detailing">Exterior Detailing</option>
+                        <option value="interior_cleaning">Interior Cleaning</option>
+                        <option value="wheel_tire_care">Wheel & Tire Care</option>
+                        <option value="full_package">Full Package</option>
+                    </select>
+
+                    <label for="vehicleMake">Vehicle Make*</label>
+                    <input type="text" id="vehicleMake" name="vehicleMake" required aria-required="true"
+                        placeholder="e.g., Toyota">
+
+                    <label for="vehicleModel">Vehicle Model*</label>
+                    <input type="text" id="vehicleModel" name="vehicleModel" required aria-required="true"
+                        placeholder="e.g., Camry">
+
+                    <label for="vehicleYear">Vehicle Year*</label>
+                    <input type="number" id="vehicleYear" name="vehicleYear" required aria-required="true"
+                        placeholder="e.g., 2020" min="1900" max="2099">
+
+                    <label for="vehicleCondition">Vehicle Condition (Optional)</label>
+                    <textarea id="vehicleCondition" name="vehicleCondition" rows="3"
+                        placeholder="e.g., very dirty, minor scratches on hood"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <label for="fullName">Full Name*</label>
+                    <input type="text" id="fullName" name="fullName" required aria-required="true" autocomplete="name">
+
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="_replyto" required aria-required="true" autocomplete="email"
+                        placeholder="you@example.com">
+
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9]{10,15}"
+                        title="Please enter a valid phone number (10-15 digits, no dashes or spaces)."
+                        placeholder="e.g., 6041234567" inputmode="numeric">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Additional Notes</legend>
+                    <label for="notes">Notes (Max 500 characters)</label>
+                    <textarea id="notes" name="notes" rows="5" maxlength="500"
+                        placeholder="Any specific requests or additional information..."></textarea>
+                </fieldset>
+
+                <input type="hidden" name="_subject" value="New Service Booking Request!">
+                <button type="submit" class="submit-btn">
+                    Request Booking
+                    <span class="spinner" style="display: none;"></span>
+                </button>
+            </form>
+            <div id="form-submission-message" role="status" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Re-using footer structure from index.html for consistency -->
+        <div class="column">
+            <div id="copyright">
+                <h3>&copy; 2025 CrystalClean Car Care. All rights reserved.</h3>
+            </div>
+            <div id="creationSig">
+                <h3>Powered by ADJ Digital</h3>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Contact Info</h2>
+            <ul class="footer-list">
+                <li>
+                    <span class="footer-label">Email:</span>
+                    <a href="mailto:info@crystalclean.com">info@crystalclean.com</a>
+                </li>
+                <li>
+                    <span class="footer-label">Phone:</span>
+                    <a href="tel:6041234567">(604) 123-4567</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Our Services</h2>
+            <ul class="footer-list">
+                <li><a href="../index.html#whatWeDo">Exterior Detailing</a></li>
+                <li><a href="../index.html#whatWeDo">Interior Cleaning</a></li>
+                <li><a href="../index.html#whatWeDo">Wheel & Tire Care</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script src="../app.js"></script> <!-- Main site JS for navbar, etc. -->
+    <script src="book.js"></script> <!-- Booking page specific JS -->
+</body>
+
+</html>
