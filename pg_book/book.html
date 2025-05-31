@@ -50,7 +50,7 @@
 
         <section id="booking-form-section" class="book-section">
             <h2>Request a Booking</h2>
-            <form id="serviceBookingForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+            <form id="serviceBookingForm"> <!-- No action or method attributes -->
                 <fieldset>
                     <legend>Service & Vehicle Information</legend>
 
@@ -86,13 +86,14 @@
                     <input type="text" id="fullName" name="fullName" required aria-required="true" autocomplete="name">
 
                     <label for="email">Email Address*</label>
-                    <input type="email" id="email" name="_replyto" required aria-required="true" autocomplete="email"
+                    <input type="email" id="email" name="email" required aria-required="true" autocomplete="email"
                         placeholder="you@example.com">
 
                     <label for="phone">Phone Number*</label>
-                    <input type="tel" id="phone" name="phone" required aria-required="true" pattern="[0-9]{10,15}"
-                        title="Please enter a valid phone number (10-15 digits, no dashes or spaces)."
-                        placeholder="e.g., 6041234567" inputmode="numeric">
+                    <input type="tel" id="phone" name="phone" required aria-required="true"
+                        pattern="\(\d{3}\) \d{3}-\d{4}"
+                        title="Phone number must be 10 digits and will be formatted as (XXX) XXX-XXXX."
+                        placeholder="(XXX) XXX-XXXX" inputmode="numeric" maxlength="14">
                 </fieldset>
 
                 <fieldset>
