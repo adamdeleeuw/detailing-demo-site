@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../style.css"> <!-- Main stylesheet -->
+    <link rel="stylesheet" href="services.css"> <!-- Services specific stylesheet -->
+    <title>Our Services - CrystalClean Car Care</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-logo">
+                <a href="../index.html"><img src="../images/crystal_logo.png" alt="CrystalClean Car Care Logo"
+                        id="logo"></a>
+            </div>
+            <button class="hamburger-menu" aria-label="Toggle navigation" aria-expanded="false"
+                aria-controls="navbarMenuContent">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+            <div class="navbar-menu-content" id="navbarMenuContent">
+                <ul class="navbar-links">
+                    <li><a href="../index.html#homePg">Home</a></li>
+                    <li><a href="../pg_book/book.html">Book</a></li>
+                    <li><a href="services.html">Services</a></li> <!-- Current page -->
+                    <li><a href="../index.html#prevWork">Our Work</a></li>
+                    <!-- Assuming #prevWork is an ID on index.html -->
+                    <li><a href="../index.html#ourWork">Contact</a></li>
+                    <!-- Assuming #ourWork is an ID on index.html for contact -->
+                </ul>
+                <a href="../pg_book/book.html" class="navbar-book-btn">Book Appointment Now</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="services-page-container">
+        <section class="services-hero">
+            <div class="services-hero-content">
+                <h1>Our Detailing Services</h1>
+                <p>Discover the range of professional detailing services we offer to make your vehicle shine like new,
+                    inside and out.</p>
+            </div>
+        </section>
+
+        <section id="our-services" class="services-section">
+            <div class="service-card">
+                <img src="../images/blkHeadlight.jpg" alt="Exterior Car Detailing" class="service-card-image">
+                <div class="service-card-content">
+                    <h2>Exterior Detailing</h2>
+                    <p class="service-short-description">Restore your vehicle's shine with our comprehensive exterior
+                        wash, wax, and paint protection services.</p>
+                    <button class="learn-more-btn" aria-expanded="false" aria-controls="details-exterior">
+                        Learn More <span class="arrow"></span>
+                    </button>
+                    <div class="service-details" id="details-exterior">
+                        <p>Our exterior detailing process includes:</p>
+                        <ul>
+                            <li>Thorough hand wash and dry</li>
+                            <li>Clay bar treatment to remove contaminants</li>
+                            <li>High-quality wax application for gloss and protection</li>
+                            <li>Paint sealant for long-lasting defense</li>
+                            <li>Tire and rim cleaning and dressing</li>
+                            <li>Window cleaning (exterior)</li>
+                        </ul>
+                        <p>We ensure every inch of your car's exterior is meticulously cleaned and protected, bringing
+                            back that showroom finish.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="../images/interior.jpg" alt="Interior Car Cleaning" class="service-card-image">
+                <div class="service-card-content">
+                    <h2>Interior Cleaning</h2>
+                    <p class="service-short-description">Experience a spotless and fresh interior with our deep
+                        cleaning, vacuuming, and surface conditioning.</p>
+                    <button class="learn-more-btn" aria-expanded="false" aria-controls="details-interior">
+                        Learn More <span class="arrow"></span>
+                    </button>
+                    <div class="service-details" id="details-interior">
+                        <p>Our interior cleaning package features:</p>
+                        <ul>
+                            <li>Complete vacuuming of carpets, seats, and trunk</li>
+                            <li>Shampooing of upholstery and carpets (if applicable)</li>
+                            <li>Leather cleaning and conditioning</li>
+                            <li>Dashboard, console, and door panel cleaning and protection</li>
+                            <li>Window cleaning (interior)</li>
+                            <li>Odor elimination</li>
+                        </ul>
+                        <p>We pay attention to every detail, ensuring your car's interior is not just clean, but also a
+                            healthy and comfortable environment.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="../images/tireWork.jpg" alt="Wheel and Tire Care" class="service-card-image">
+                <!-- Placeholder image -->
+                <div class="service-card-content">
+                    <h2>Wheel & Tire Care</h2>
+                    <p class="service-short-description">Specialized cleaning and protection for your wheels and tires,
+                        removing brake dust and adding shine.</p>
+                    <button class="learn-more-btn" aria-expanded="false" aria-controls="details-wheel">
+                        Learn More <span class="arrow"></span>
+                    </button>
+                    <div class="service-details" id="details-wheel">
+                        <p>Our wheel and tire care includes:</p>
+                        <ul>
+                            <li>Deep cleaning of rims to remove brake dust and grime</li>
+                            <li>Tire scrubbing and cleaning</li>
+                            <li>Application of tire dressing for a lasting shine and protection</li>
+                            <li>Wheel well cleaning</li>
+                            <li>Optional rim polishing and sealing</li>
+                        </ul>
+                        <p>Clean wheels and tires make a huge difference in your car's overall appearance. We make them
+                            look their best.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="../images/tesla.jpg" alt="Full Car Detailing Package" class="service-card-image">
+                <!-- Placeholder image -->
+                <div class="service-card-content">
+                    <h2>Full Package</h2>
+                    <p class="service-short-description">The ultimate detailing experience, combining our exterior and
+                        interior services for a complete vehicle transformation.</p>
+                    <button class="learn-more-btn" aria-expanded="false" aria-controls="details-full">
+                        Learn More <span class="arrow"></span>
+                    </button>
+                    <div class="service-details" id="details-full">
+                        <p>Our full package is the best value and includes everything from our Exterior Detailing and
+                            Interior Cleaning services, plus:</p>
+                        <ul>
+                            <li>Engine bay cleaning (optional, upon request)</li>
+                            <li>Headlight restoration (if needed)</li>
+                            <li>Comprehensive attention to every detail</li>
+                        </ul>
+                        <p>Choose the full package for a vehicle that looks and feels brand new, inside and out. It's
+                            the perfect solution for preparing a car for sale or simply treating yourself and your ride.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="column">
+            <div id="copyright">
+                <h3>&copy; <span id="currentYear"></span> CrystalClean Car Care. All rights reserved.</h3>
+            </div>
+            <div id="creationSig">
+                <h3>Powered by ADJ Digital</h3>
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>Contact Info</h2>
+            <ul class="footer-list">
+                <li>
+                    <span class="footer-label">Email:</span>
+                    <a href="mailto:info@crystalclean.com">info@crystalclean.com</a>
+                </li>
+                <li>
+                    <span class="footer-label">Phone:</span>
+                    <a href="tel:YOUR_PHONE_NUMBER">(XXX) XXX-XXXX</a> <!-- Update with actual phone -->
+                </li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <h2>Our Services</h2>
+            <ul class="footer-list">
+                <li><a href="services.html#details-exterior">Exterior Detailing</a></li>
+                <li><a href="services.html#details-interior">Interior Cleaning</a></li>
+                <li><a href="services.html#details-wheel">Wheel & Tire Care</a></li>
+                <li><a href="services.html#details-full">Full Package</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="../app.js"></script> <!-- Main JS for navbar, footer, etc. -->
+    <script src="services.js"></script> <!-- Services specific JS -->
+</body>
+
+</html>
