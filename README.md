@@ -1,6 +1,6 @@
 # Demo Site: CrystalClear Car Care
 
-**Live Demo:** 
+**Live Demo:** https://adamdeleeuw.github.io/detailing-demo-site/
 
 ## About This Project
 
