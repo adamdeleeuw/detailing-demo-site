@@ -1,0 +1,228 @@
+body {
+    background-color: var(--color-background, #121212);
+}
+
+.our-work-page-container {
+    padding-top: 80px;
+    /* Adjust if navbar height is different or fixed */
+    color: var(--color-text, #E0E0E0);
+}
+
+/* Hero Section */
+.our-work-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/work_hero_bg.jpg');
+    /* Add a suitable hero background image */
+    background-size: cover;
+    background-position: center 30%;
+    /* Adjust as needed */
+    background-attachment: fixed;
+    /* Optional: for parallax effect */
+    padding: 60px 20px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 40px;
+    border-bottom: 3px solid var(--color-primary, #007BFF);
+}
+
+.our-work-hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--color-accent, #00BFFF);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+.our-work-hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Gallery Container */
+.gallery-container {
+    display: flex;
+    /* Changed from grid to flex */
+    flex-wrap: wrap;
+    /* Allow items to wrap to the next line */
+    gap: 25px;
+    /* Defines the space between cards */
+    padding: 20px;
+    max-width: 1300px;
+    margin: 0 auto 40px auto;
+    justify-content: flex-start;
+    /* Ensures items (including the last row) start from the left */
+}
+
+/* Gallery Card Container (for perspective and hover effect) */
+.gallery-card-container {
+    perspective: 1000px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Flex item sizing for 3 columns */
+    flex-grow: 0;
+    /* Prevent items from growing */
+    flex-shrink: 0;
+    /* Prevent items from shrinking */
+    flex-basis: calc((100% - (2 * 25px)) / 3);
+    /* (100% width - 2 gaps) / 3 items */
+    /* Note: 2 * 25px because there are two 25px gaps between three items in a row */
+}
+
+.gallery-card-container:hover,
+.gallery-card-container:focus-within {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 123, 255, 0.2), 0 0 40px rgba(0, 123, 255, 0.1);
+}
+
+/* Gallery Card (the flippable element) */
+.gallery-card {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: var(--color-card-background, #1E1E1E);
+}
+
+.gallery-card-container.flipped .gallery-card {
+    transform: rotateY(180deg);
+}
+
+/* Card Faces (Front and Back) */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* Hides the back of the card when facing away */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    overflow: hidden;
+    /* Ensures content fits within rounded corners */
+    border: 1px solid var(--color-border, #333);
+    box-sizing: border-box;
+}
+
+.card-front {
+    background-color: var(--color-card-background, #1E1E1E);
+    color: var(--color-text, #E0E0E0);
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensures image covers the card face */
+    display: block;
+}
+
+.card-back {
+    background-color: var(--color-primary-darker, #004c8e);
+    color: #fff;
+    transform: rotateY(180deg);
+    padding: 5% 10%;
+    text-align: left;
+    justify-content: flex-start;
+    overflow-y: auto;
+}
+
+.card-back-content {
+    width: 100%;
+}
+
+.card-back h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-accent-light, #87CEFA);
+    /* Lighter accent for readability */
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-accent-light-transparent, rgba(135, 206, 250, 0.5));
+    padding-bottom: 8px;
+}
+
+.card-back p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.card-back p strong {
+    color: var(--color-accent-light, #87CEFA);
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+
+    /* Example: Tablets - 2 columns */
+    .gallery-container {
+        gap: 20px;
+        /* Adjust gap if needed */
+    }
+
+    .gallery-card-container {
+        flex-basis: calc((100% - 20px) / 2);
+        /* (100% width - 1 gap) / 2 items */
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Example: Small Tablets/Large Phones - still 2 columns or 1 */
+    .our-work-page-container {
+        padding-top: 70px;
+    }
+
+    .our-work-hero {
+        padding: 40px 15px;
+    }
+
+    .gallery-container {
+        gap: 15px;
+        /* Adjust gap if needed */
+        padding: 15px;
+    }
+
+    /* You might want 2 columns here as well, or switch to 1 */
+    .gallery-card-container {
+        /* For 2 columns: flex-basis: calc((100% - 15px) / 2); */
+        /* For 1 column: */
+        flex-basis: 100%;
+    }
+
+    .card-back h3 {
+        font-size: 1.2rem;
+    }
+
+    .card-back p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Example: Small Phones - 1 column */
+    .our-work-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .our-work-hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .gallery-card-container {
+        flex-basis: 100%;
+        /* Full width for single column */
+    }
+
+    .gallery-card {
+        aspect-ratio: 16 / 11;
+    }
+}

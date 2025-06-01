@@ -69,6 +69,10 @@ h3,
     padding: 0;
 }
 
+.navbar a {
+    text-decoration: none;
+}
+
 #logo {
     border-radius: 50%;
 }

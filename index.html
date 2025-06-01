@@ -30,10 +30,10 @@
                     <li><a href="#homePg">Home</a></li>
                     <li><a href="pg_book/book.html">Book</a></li>
                     <li><a href="pg_services/services.html">Services</a></li>
-                    <li><a href="#prevWork">Our Work</a></li>
-                    <li><a href="#ourWork">Contact</a></li>
+                    <li><a href="pg_ourWork/ourWork.html">Our Work</a></li>
+                    <li><a href="#page-footer">Contact</a></li>
                 </ul>
-                <button class="navbar-book-btn">Book Appointment Now</button>
+                <a href="pg_book/book.html" class="navbar-book-btn">Book Appointment Now</a> <!-- CORRECT -->
             </div>
         </nav>
     </header>
@@ -141,10 +141,12 @@
         <div id="number">
             <h3><a href="tel:YOUR_PHONE_NUMBER">(XXX) XXX - XXX</a></h3>
         </div>
-        <button>Book Appointment</button>
+        <a href="pg_book/book.html" style="text-decoration: none;">
+            <button>Book Appointment</button>
+        </a>
     </section>
 
-    <footer>
+    <footer id="page-footer"> <!-- ADD THIS ID -->
         <div class="column">
             <div id="copyright">
                 <h3>&copy; 2025 CrystalClean Car Care. All rights reserved.</h3>
