@@ -1,16 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
-    const scrollThreshold = 50;
 
     if (navbar) {
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > scrollThreshold) {
-                navbar.classList.add('navbar-scrolled');
-            } else {
-                navbar.classList.remove('navbar-scrolled');
-            }
-        });
+        // Remove scroll event for background animation (no longer needed)
     }
 
     // Hamburger Menu Toggle

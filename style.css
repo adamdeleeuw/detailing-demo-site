@@ -35,23 +35,20 @@ h3,
     align-items: center;
     justify-content: space-between;
     padding: 1rem 2rem;
-    /* Initial state: Gradient from solid black at top to transparent at bottom */
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    background: #000 !important;
+    /* Always solid black background */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
     box-shadow: none;
-    box-sizing: border-box;
-    /* No shadow initially */
-    /* Transition the background property as a whole, and box-shadow */
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Remove background transition, keep box-shadow if needed */
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .navbar.navbar-scrolled {
-    /* Scrolled state: Solid black background */
-    background: rgba(0, 0, 0, 1);
+    background: #000 !important;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
     /* Shadow appears on scroll */
 }
@@ -809,20 +806,15 @@ footer .column {
 /* Responsive Styles for Navbar (<= 780px) */
 @media (max-width: 780px) {
     .navbar {
-        background-color: #000;
-        /* Solid black background */
+        background-color: #000 !important;
+        /* Always solid black background on mobile */
         justify-content: space-between;
-        /* Align logo and hamburger */
         position: relative;
-        /* For absolute positioning of the mobile menu */
         padding-left: 1rem;
-        /* Ensure some padding */
         padding-right: 1rem;
     }
-
     .navbar.navbar-scrolled {
         background-color: #000 !important;
-        /* Ensure black background even when scrolled */
     }
 
     .hamburger-menu {
@@ -842,7 +834,7 @@ footer .column {
         left: 0;
         width: 100%;
         background-color: #000;
-        /* Black background for dropdown */
+        /* Always solid black for mobile dropdown */
         padding: 1rem 0;
         max-height: 0;
         opacity: 0;
